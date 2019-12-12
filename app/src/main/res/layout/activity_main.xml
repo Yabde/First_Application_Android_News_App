@@ -7,11 +7,11 @@
     tools:context=".MainActivity">
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view_id"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="16dp"
         android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        android:id="@+id/recycler_view_id"></androidx.recyclerview.widget.RecyclerView>
+        android:layout_marginTop="16dp"
+        android:layout_marginRight="16dp"></androidx.recyclerview.widget.RecyclerView>
 
 </LinearLayout>
