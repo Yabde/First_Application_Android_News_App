@@ -11,7 +11,7 @@
 
 
     <ImageView
-        android:id="@+id/thumbnail"
+        android:id="@+id/vignette"
         android:layout_width="100dp"
         android:layout_height="match_parent"
         android:background="@drawable/contenant_forme" />
@@ -49,7 +49,9 @@
             android:layout_height="wrap_content"
             android:id="@+id/descriptif"
             android:text="Description : "
-            android:layout_marginTop="4dp"/>
+            android:layout_marginTop="4dp"
+            android:textColor="#2B2B2B"
+            android:textStyle="bold"/>
 
 
     </LinearLayout>
