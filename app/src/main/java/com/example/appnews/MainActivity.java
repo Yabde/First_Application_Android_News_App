@@ -1,6 +1,7 @@
 package com.example.appnews;
 
 import android.os.Bundle;
+import android.util.Log;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -42,19 +43,29 @@ public class MainActivity extends AppCompatActivity {
         pas_de_connexion.setTitle("Erreur de connexion");
         pas_de_connexion.setMessage("Connectez vous à internet");  **/
 
+
         listeArticles = new ArrayList<>();  //Servira pour tout stocker
         recyclerView = findViewById(R.id.recycler_view_id);
+        requestQueue = Volley.newRequestQueue(MainActivity.this);
+
         jsonrequest();
+
+        /**
+        ArrayList<Articles> articles = new ArrayList<>();
+        recyclerView = findViewById(R.id.recycler_view_id);
+        recyclerView.setLayoutManager(new ); **/
 
     }
 
 
     /** On définie notre requete pour récupérer les infos souhaitées **/
     private void jsonrequest() {
+        Log.d("coucou", "launch request");
         request = new JsonArrayRequest(Json_source_url, new Response.Listener<JSONArray>() {
             @Override
             public void onResponse(JSONArray response) {
                 JSONObject jsonObject = null;
+                Log.d("coucou", "request done");
 
                 for (int i = 0; i < response.length(); i++) {
 
@@ -67,6 +78,7 @@ public class MainActivity extends AppCompatActivity {
                         articles.setDescription(jsonObject.getString("description"));
                         articles.setUrlToImage(jsonObject.getString("urlToImage"));
                         listeArticles.add(articles);
+                        Log.d("coucou", "tesy");
 
                     } catch (JSONException e) {
                         e.printStackTrace();
@@ -79,12 +91,11 @@ public class MainActivity extends AppCompatActivity {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-
+                Log.d("coucou", "request failed"+error.getMessage());
             }
         });
 
 
-        requestQueue = Volley.newRequestQueue(MainActivity.this);
         requestQueue.add(request);
 
     }
