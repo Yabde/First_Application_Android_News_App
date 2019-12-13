@@ -18,6 +18,14 @@ public class Articles {
     public Articles() {
     }
 
+    public Articles(String author, String title, String description, String urlToImage, String publishedAt) {
+        this.author = author;
+        this.title = title;
+        this.description = description;
+        this.urlToImage = urlToImage;
+        this.publishedAt = publishedAt;
+    }
+
     public Articles(String id, String name, String author, String title, String description, String url, String urlToImage, String publishedAt, String content) {
         this.id = id;
         this.name = name;
