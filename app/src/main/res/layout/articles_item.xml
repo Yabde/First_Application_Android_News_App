@@ -1,63 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent">
-
-<LinearLayout
-    android:orientation="horizontal"
-    android:layout_width="match_parent"
-    android:layout_height="150dp"
-    android:layout_marginTop="5dp"
-    android:padding="8dp"
-    android:background="@drawable/gros_contenant_forme">
-
-
-    <ImageView
-        android:id="@+id/vignette"
-        android:layout_width="100dp"
-        android:layout_height="match_parent"
-        android:background="@drawable/contenant_forme" />
+    android:layout_width="match_parent" android:layout_height="wrap_content">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="130dp"
-        android:layout_margin="8dp"
-        android:orientation="vertical">
+        android:layout_height="153dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/gros_contenant_forme"
+        android:orientation="horizontal"
+        android:padding="8dp">
 
 
-        <TextView
-            android:id="@+id/article_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Titre : "
-            android:textSize="18sp"
-            android:textStyle="bold" />
+        <ImageView
+            android:id="@+id/vignette"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/contenant_forme" />
 
-        <TextView
-            android:id="@+id/auteur_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Auteur : " />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="130dp"
+            android:layout_margin="8dp"
+            android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/publication"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="2dp"
-            android:text="Date : " />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/descriptif"
-            android:text="Description : "
-            android:layout_marginTop="4dp"
-            android:textColor="#2B2B2B"
-            android:textStyle="bold"/>
+            <TextView
+                android:id="@+id/article_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Titre : "
+                android:textColor="#000"
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
+            <TextView
+                android:id="@+id/auteur_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Auteur : " />
+
+            <TextView
+                android:id="@+id/publication"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="Date : " />
+
+            <TextView
+                android:id="@+id/descriptif"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="Description : "
+                android:textColor="#2B2B2B"
+                android:textStyle="bold" />
+
+
+        </LinearLayout>
 
     </LinearLayout>
-
-</LinearLayout>
 
 </androidx.cardview.widget.CardView>
