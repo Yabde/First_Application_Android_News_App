@@ -43,15 +43,15 @@ public class RecyclerViewAdapter extends Adapter<RecyclerViewAdapter.RecyclerVie
         Articles currentArticles = mArticlesList.get(position);
 
         String imageUrl = currentArticles.getUrlToImage();
-        String creatorName = currentArticles.getName();
+        String creatorName = currentArticles.getTitle();
         String creatorAuthor = currentArticles.getAuthor();
         String creatorDate = currentArticles.getPublishedAt();
-        String creatorDescription = currentArticles.getDescription();
+        //String creatorDescription = currentArticles.getDescription();
 
         holder.artic_name.setText(creatorName);
         holder.artic_auteur.setText(creatorAuthor);
         holder.artic_date.setText(creatorDate);
-        holder.artic_description.setText(creatorDescription);
+        //holder.artic_description.setText(creatorDescription);
         Picasso.with(mContext).load(imageUrl).fit().centerInside().into(holder.artic_img);
 
     }
@@ -74,7 +74,7 @@ public class RecyclerViewAdapter extends Adapter<RecyclerViewAdapter.RecyclerVie
             artic_name = itemView.findViewById(R.id.article_name);
             artic_auteur = itemView.findViewById(R.id.auteur_name);
             artic_date = itemView.findViewById(R.id.publication);
-            artic_description = itemView.findViewById(R.id.descriptif);
+            //artic_description = itemView.findViewById(R.id.descriptif);
             artic_img = itemView.findViewById(R.id.vignette);
 
         }

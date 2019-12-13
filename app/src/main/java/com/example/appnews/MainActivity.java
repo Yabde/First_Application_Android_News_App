@@ -78,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void parseJSON() {
 
-        String url_source = "https://newsapi.org/v2/everything?apiKey=d31f5fa5f03443dd8a1b9e3fde92ec34&language=fr&sources=lequipe";
+        String url_source = "https://newsapi.org/v2/everything?apiKey=d31f5fa5f03443dd8a1b9e3fde92ec34&language=fr&sources=le-monde";
 
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url_source, null,
                 new Response.Listener<JSONObject>() {
@@ -95,10 +95,10 @@ public class MainActivity extends AppCompatActivity {
                                 String creatorName = articles.getString("title");
                                 String creatorAuthor = articles.getString("author");
                                 String creatorDate = articles.getString("publishedAt");
-                                String creatorDescription = articles.getString("description");
+                                //String creatorDescription = articles.getString("description");
                                 String imageUrl = articles.getString("urlToImage");
 
-                                mArticlesList.add(new Articles(creatorAuthor, creatorName, creatorDescription, imageUrl, creatorDate));
+                                mArticlesList.add(new Articles(creatorAuthor, creatorName, imageUrl, creatorDate));
                             }
 
                             mArticlesAdapter = new RecyclerViewAdapter(MainActivity.this, mArticlesList);
@@ -119,6 +119,8 @@ public class MainActivity extends AppCompatActivity {
         //On doit rajouter notre requete à notre RequestQue
         mRequestQueue.add(request);
     }
+
+
 
 
 //    /** On définie notre requete pour récupérer les infos souhaitées **/

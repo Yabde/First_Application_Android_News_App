@@ -5,7 +5,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="153dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
         android:background="@drawable/gros_contenant_forme"
         android:orientation="horizontal"
@@ -14,47 +14,47 @@
 
         <ImageView
             android:id="@+id/vignette"
-            android:layout_width="100dp"
-            android:layout_height="match_parent"
+            android:layout_width="110dp"
+            android:layout_height="57dp"
             android:background="@drawable/contenant_forme" />
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="130dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_margin="8dp"
             android:orientation="vertical">
 
 
             <TextView
                 android:id="@+id/article_name"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Titre : "
                 android:textColor="#000"
-                android:textSize="18sp"
+                android:textSize="14sp"
                 android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/auteur_name"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Auteur : " />
 
             <TextView
                 android:id="@+id/publication"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="2dp"
                 android:text="Date : " />
 
-            <TextView
-                android:id="@+id/descriptif"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                android:text="Description : "
-                android:textColor="#2B2B2B"
-                android:textStyle="bold" />
+<!--            <TextView-->
+<!--                android:id="@+id/descriptif"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginTop="4dp"-->
+<!--                android:text="Description : "-->
+<!--                android:textColor="#2B2B2B"-->
+<!--                android:textStyle="bold" />-->
 
 
         </LinearLayout>
