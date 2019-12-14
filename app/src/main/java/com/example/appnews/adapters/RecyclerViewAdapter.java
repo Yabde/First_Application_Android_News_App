@@ -2,6 +2,7 @@ package com.example.appnews.adapters;
 
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -49,11 +50,27 @@ public class RecyclerViewAdapter extends Adapter<RecyclerViewAdapter.RecyclerVie
         //String creatorDescription = currentArticles.getDescription();
 
         holder.artic_name.setText(creatorName);
-        holder.artic_auteur.setText(creatorAuthor);
         holder.artic_date.setText(creatorDate);
         //holder.artic_description.setText(creatorDescription);
-        Picasso.with(mContext).load(imageUrl).fit().centerInside().into(holder.artic_img);
 
+        // Prise en compte des Auteurs Manquants
+        if (creatorAuthor.equals("null")) {
+            holder.artic_auteur.setText("Pas d'auteur.");
+        }
+        else {
+            holder.artic_auteur.setText(creatorAuthor);
+        }
+
+        // Prise en compte des Images Manquantes
+        if (imageUrl.equals("null")) {
+            Picasso.with(mContext).load(R.drawable.pas_dimage_disponible).fit().centerInside().into(holder.artic_img);
+            Log.d("moumou", String.valueOf(holder.artic_img));
+        }
+        else {
+            Picasso.with(mContext).load(imageUrl).fit().centerInside().into(holder.artic_img);
+            Log.d("blabla", String.valueOf(holder.artic_img));
+        }
+        //Picasso.with(mContext).load(imageUrl).fit().centerInside().into(holder.artic_img);
     }
 
     @Override

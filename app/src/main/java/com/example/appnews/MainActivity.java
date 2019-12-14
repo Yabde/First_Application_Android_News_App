@@ -1,6 +1,7 @@
 package com.example.appnews;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -113,12 +114,23 @@ public class MainActivity extends AppCompatActivity {
                             for (int i = 0; i < jsonArray.length(); i++) {
                                 JSONObject articles = jsonArray.getJSONObject(i);
 
-                                String creatorName = articles.getString("title");
+                                // Prise en compte des données manquantes...
+                                //String creatorAuthor;
+
+//                                if(articles.isNull("author")) creatorAuthor = "pas d'auteur";
+//                                else creatorAuthor = articles.getString("author");
+
                                 String creatorAuthor = articles.getString("author");
+                                String creatorName = articles.getString("title");
+                                String imageUrl = articles.getString("urlToImage");
                                 String creatorDate = articles.getString("publishedAt");
                                 //String creatorDescription = articles.getString("description");
-                                String imageUrl = articles.getString("urlToImage");
                                 String article_url = articles.getString("url");
+
+
+                                Log.d("coucou", articles.getString("urlToImage"));
+
+
 
                                 mArticlesList.add(new Articles(creatorAuthor, creatorName, imageUrl, creatorDate, article_url));
                                 mArticlesList.get(i).setSource(url_source);
@@ -136,6 +148,7 @@ public class MainActivity extends AppCompatActivity {
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
+                //Log.d("coucou", "request failed"+error.getMessage());
                 error.printStackTrace();
             }
         });
