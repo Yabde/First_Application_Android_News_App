@@ -112,7 +112,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
+        
         parseJSON(); //nom arbitraire : methodes à créer séparément pour pouvoir mettre les données
     }
 

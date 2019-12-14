@@ -49,6 +49,11 @@ public class SplashScreen extends AppCompatActivity {
                 finish();
             }
         });
+        Pas_Internet.setNeutralButton("Rester quand même", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+            }
+        });
 
 
         parseSOURCE_JSON();
