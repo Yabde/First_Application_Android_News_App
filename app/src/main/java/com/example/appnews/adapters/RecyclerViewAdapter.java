@@ -32,6 +32,8 @@ public class RecyclerViewAdapter extends Adapter<RecyclerViewAdapter.RecyclerVie
         mArticlesList = articlesList;
     }
 
+
+    // Affichage IMPAIR et PAIR grâce à cet méthode : permet de retourner différent view dans onCreateViewHolder
     @Override
     public int getItemViewType(int position) {
 
@@ -42,7 +44,6 @@ public class RecyclerViewAdapter extends Adapter<RecyclerViewAdapter.RecyclerVie
     }
 
 
-
     @NonNull
     @Override
     public RecyclerViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -50,17 +51,12 @@ public class RecyclerViewAdapter extends Adapter<RecyclerViewAdapter.RecyclerVie
         //View impair = LayoutInflater.from(mContext).inflate(R.layout.articles_item_impair, parent, false    );
 
         View view = null;
-        RecyclerView.ViewHolder viewHolder = null;
+        //RecyclerView.ViewHolder viewHolder = null;
 
-        if(viewType == Layout_pair){
+        if(viewType == Layout_pair)
             view = LayoutInflater.from(mContext).inflate(R.layout.articles_item, parent, false);
-
-        }
-        else {
+        else
             view = LayoutInflater.from(mContext).inflate(R.layout.articles_item_impair, parent, false);
-
-        }
-
 
         return new RecyclerViewHolder(view);
     }

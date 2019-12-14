@@ -1,8 +1,10 @@
 package com.example.appnews;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.android.volley.RequestQueue;
@@ -24,19 +26,32 @@ public class SplashScreen extends AppCompatActivity {
     String url_source = "https://newsapi.org/v2/sources?apiKey=d31f5fa5f03443dd8a1b9e3fde92ec34&language=fr";
     private ArrayList<Source> mSourcesList;
 
+    AlertDialog.Builder Pas_Internet;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         mSourcesList = new ArrayList<>(); //Pour mettre nos données
+
+        Pas_Internet = new AlertDialog.Builder(this);
+        Pas_Internet.setTitle("Alert");
+        Pas_Internet.setMessage("Pas de connexion réseau");
+        Pas_Internet.setPositiveButton("Retry", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                parseSOURCE_JSON();
+            }
+        });
+        Pas_Internet.setNegativeButton("Quit", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                finish();
+            }
+        });
+
+
         parseSOURCE_JSON();
-
-        //Appel de l'activité principal depuis notre Splashcreen
-//        Intent intent = new Intent(SplashScreen.this, MainActivity.class);
-//        startActivity(intent);
-//        finish();
-
     }
 
     private void parseSOURCE_JSON() {
@@ -89,6 +104,7 @@ public class SplashScreen extends AppCompatActivity {
 
             @Override
             public void onErrorResponse(VolleyError error) {
+                Pas_Internet.show();
 
             }
         });

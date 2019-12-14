@@ -1,5 +1,6 @@
 package com.example.appnews;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -7,6 +8,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -30,7 +32,7 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-    //AlertDialog.Builder pas_de_connexion;
+    AlertDialog.Builder Pas_Internet;
 
     private RecyclerView mRecyclerView;
     private RecyclerViewAdapter mArticlesAdapter;
@@ -91,8 +93,29 @@ public class MainActivity extends AppCompatActivity {
 
         mRequestQueue = Volley.newRequestQueue(this);
 
+
+        // Partie AlertDialog
+
+        Pas_Internet = new AlertDialog.Builder(this);
+        Pas_Internet.setTitle("Alert");
+        Pas_Internet.setMessage("Pas de connexion réseau");
+        Pas_Internet.setPositiveButton("Retry", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                parseJSON();
+            }
+        });
+        Pas_Internet.setNegativeButton("Quit", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                finish();
+            }
+        });
+
+
         parseJSON(); //nom arbitraire : methodes à créer séparément pour pouvoir mettre les données
     }
+
 
     private void parseJSON() {
 
@@ -138,6 +161,7 @@ public class MainActivity extends AppCompatActivity {
             public void onErrorResponse(VolleyError error) {
                 //Log.d("coucou", "request failed"+error.getMessage());
                 error.printStackTrace();
+                Pas_Internet.show();
             }
         });
 
