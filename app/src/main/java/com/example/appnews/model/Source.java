@@ -16,6 +16,12 @@ public class Source {
     public Source() {
     }
 
+    public Source(String id, String name, String url) {
+        this.id = id;
+        this.name = name;
+        this.url = url;
+    }
+
     public Source(String id, String name, String description, String url, String category, String language, String country) {
         this.id = id;
         this.name = name;

@@ -11,6 +11,7 @@ public class Articles {
     private String urlToImage;
     private String publishedAt;
     private String content;
+    private Source source;
 
 
     /** Contructeurs **/
@@ -18,12 +19,13 @@ public class Articles {
     public Articles() {
     }
 
-    public Articles(String author, String title, String urlToImage, String publishedAt) {
+    public Articles(String author, String title, String urlToImage, String publishedAt, String url) {
         this.author = author;
         this.title = title;
         this.description = description;
         this.urlToImage = urlToImage;
         this.publishedAt = publishedAt;
+        this.url = url;
     }
 
     public Articles(String id, String name, String author, String title, String description, String url, String urlToImage, String publishedAt, String content) {
@@ -36,6 +38,11 @@ public class Articles {
         this.urlToImage = urlToImage;
         this.publishedAt = publishedAt;
         this.content = content;
+    }
+
+    // Methode pour prendre en comtpe les différentes sources et les rajouter dans notre SPINNER
+    public void setSource(Source source) {
+        this.source = source;
     }
 
     /** Partie Getters **/
@@ -69,7 +76,10 @@ public class Articles {
     }
 
     public String getPublishedAt() {
-        return publishedAt;
+        if(publishedAt != null){
+            return publishedAt.replace("T", " ").replace("Z", "");
+        }
+        return "";
     }
 
     public String getContent() {
