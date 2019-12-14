@@ -24,18 +24,47 @@ public class RecyclerViewAdapter extends Adapter<RecyclerViewAdapter.RecyclerVie
     private Context mContext;
     private ArrayList<Articles> mArticlesList;
 
+    private static final int Layout_pair = 0;
+    private static final int Layout_impair = 1;
+
     public RecyclerViewAdapter(Context context, ArrayList<Articles> articlesList) {
         mContext = context;
         mArticlesList = articlesList;
     }
 
+    @Override
+    public int getItemViewType(int position) {
+
+        if (position % 2 == 0)
+            return Layout_pair;
+        else
+            return Layout_impair;
+    }
+
+
+
     @NonNull
     @Override
     public RecyclerViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(mContext).inflate(R.layout.articles_item, parent, false);
+        //View v = LayoutInflater.from(mContext).inflate(R.layout.articles_item, parent, false);
+        //View impair = LayoutInflater.from(mContext).inflate(R.layout.articles_item_impair, parent, false    );
 
-        return new RecyclerViewHolder(v);
+        View view = null;
+        RecyclerView.ViewHolder viewHolder = null;
+
+        if(viewType == Layout_pair){
+            view = LayoutInflater.from(mContext).inflate(R.layout.articles_item, parent, false);
+
+        }
+        else {
+            view = LayoutInflater.from(mContext).inflate(R.layout.articles_item_impair, parent, false);
+
+        }
+
+
+        return new RecyclerViewHolder(view);
     }
+
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerViewHolder holder, int position) {

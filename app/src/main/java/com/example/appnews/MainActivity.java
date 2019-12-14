@@ -32,9 +32,6 @@ public class MainActivity extends AppCompatActivity {
 
     //AlertDialog.Builder pas_de_connexion;
 
-//    private final String Json_source_url = "https://newsapi.org/v2/everything?apiKey=d31f5fa5f03443dd8a1b9e3fde92ec34&language=fr&sources=lequipe";
-
-
     private RecyclerView mRecyclerView;
     private RecyclerViewAdapter mArticlesAdapter;
     private ArrayList<Articles> mArticlesList;
@@ -50,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
-        /** Partie SPINNER **/
+        /* Partie SPINNER **/
         Spinner spinner = (Spinner) findViewById(R.id.spinner);
 
         ArrayList<CharSequence> toutes_les_sources = new ArrayList<>();  //pour tout stocker
@@ -70,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 url_source = source_list.get(position);
 
-                mArticlesList.clear();
+                mArticlesList.clear();  //Pour réinitialiser et afficher les nouveaux quand on clique
                 parseJSON();
             }
 
@@ -83,7 +80,7 @@ public class MainActivity extends AppCompatActivity {
             url_source = source_list.get(0);
         }
 
-        /** Usage du Recycler **/
+        /* Usage du Recycler **/
 
         //D'abord on définit notre recycler view
         mRecyclerView = findViewById(R.id.recycler_view_id);
@@ -114,12 +111,6 @@ public class MainActivity extends AppCompatActivity {
                             for (int i = 0; i < jsonArray.length(); i++) {
                                 JSONObject articles = jsonArray.getJSONObject(i);
 
-                                // Prise en compte des données manquantes...
-                                //String creatorAuthor;
-
-//                                if(articles.isNull("author")) creatorAuthor = "pas d'auteur";
-//                                else creatorAuthor = articles.getString("author");
-
                                 String creatorAuthor = articles.getString("author");
                                 String creatorName = articles.getString("title");
                                 String imageUrl = articles.getString("urlToImage");
@@ -127,10 +118,7 @@ public class MainActivity extends AppCompatActivity {
                                 //String creatorDescription = articles.getString("description");
                                 String article_url = articles.getString("url");
 
-
                                 Log.d("coucou", articles.getString("urlToImage"));
-
-
 
                                 mArticlesList.add(new Articles(creatorAuthor, creatorName, imageUrl, creatorDate, article_url));
                                 mArticlesList.get(i).setSource(url_source);
@@ -156,53 +144,4 @@ public class MainActivity extends AppCompatActivity {
         //On doit rajouter notre requete à notre RequestQue
         mRequestQueue.add(request);
     }
-
-
-
-
-//    /** On définie notre requete pour récupérer les infos souhaitées **/
-//    private void jsonrequest() {
-//        Log.d("coucou", "launch request");
-//        request = new JsonArrayRequest(Json_source_url, new Response.Listener<JSONArray>() {
-//            @Override
-//            public void onResponse(JSONArray response) {
-//                JSONObject jsonObject = null;
-//                //JSONArray jsonArray = jsonObject.getJSONArray("articles");
-//
-//                Log.d("coucou", "request done");
-//
-//                for (int i = 0; i < response.length(); i++) {
-//
-//                    try {
-//
-//                        jsonObject = response.getJSONObject(i);
-//                        Articles articles = new Articles();
-//                        articles.setName(jsonObject.getString("title"));
-//                        articles.setAuthor(jsonObject.getString("author"));
-//                        articles.setPublishedAt(jsonObject.getString("publishedAt"));
-//                        articles.setDescription(jsonObject.getString("description"));
-//                        articles.setUrlToImage(jsonObject.getString("urlToImage"));
-//                        listeArticles.add(articles);
-//                        Log.d("coucou", "tesy");
-//
-//                    } catch (JSONException e) {
-//                        e.printStackTrace();
-//                    }
-//
-//                    setuprecyclerview(listeArticles);
-//
-//                }
-//            }
-//        }, new Response.ErrorListener() {
-//            @Override
-//            public void onErrorResponse(VolleyError error) {
-//                Log.d("coucou", "request failed"+error.getMessage());
-//            }
-//        });
-//
-//
-//        requestQueue.add(request);
-//
-//    }
-
 }
