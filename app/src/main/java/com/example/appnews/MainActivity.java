@@ -68,6 +68,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 url_source = source_list.get(position);
+
+                mArticlesList.clear();
                 parseJSON();
             }
 
