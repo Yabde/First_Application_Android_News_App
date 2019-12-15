@@ -14,6 +14,7 @@ import static com.example.appnews.MainActivity.Extra_date;
 import static com.example.appnews.MainActivity.Extra_description;
 import static com.example.appnews.MainActivity.Extra_id;
 import static com.example.appnews.MainActivity.Extra_img_url;
+import static com.example.appnews.MainActivity.Extra_title;
 
 public class DetailActivity extends AppCompatActivity {
 
@@ -24,6 +25,7 @@ public class DetailActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
 
+        String create_title = intent.getStringExtra(Extra_title);
         String create_author = intent.getStringExtra(Extra_author);
         String create_id = intent.getStringExtra(Extra_id);
         String create_description = intent.getStringExtra(Extra_description);
@@ -31,18 +33,26 @@ public class DetailActivity extends AppCompatActivity {
         String imageUrl = intent.getStringExtra(Extra_img_url);
         //String create_webview = intent.getStringExtra(Extra_buton_webview);
 
+        TextView textViewTitle = findViewById(R.id.text_view_title_detail);
         TextView textViewAuthor = findViewById(R.id.text_view_author_detail);
         TextView textViewId = findViewById(R.id.text_view_source_detail);
         TextView textViewDescription = findViewById(R.id.text_view_description_detail);
         TextView textViewDate = findViewById(R.id.text_view_date_detail);
         ImageView imageView = findViewById(R.id.image_view_detail);
 
-        textViewAuthor.setText(create_author);
+        textViewTitle.setText(create_title);
         textViewId.setText(create_id);
-        textViewDescription.setText(create_description);
+        textViewDescription.setText("Description : " + create_description);
         textViewDate.setText(create_date);
-        Picasso.with(this).load(imageUrl).fit().centerInside().into(imageView);
 
+        // Prise en compte des Auteurs Manquants
+        if (create_author.equals("null")) textViewAuthor.setText("Pas d'auteur.");
+        else textViewAuthor.setText("Auteur : " + create_author);
+
+        // Prise en compte des Images Manquantes
+        if (imageUrl.equals("null"))
+            Picasso.with(this).load(R.drawable.pas_dimage_disponible).fit().centerInside().into(imageView);
+        else Picasso.with(this).load(imageUrl).fit().centerInside().into(imageView);
 
     }
 }

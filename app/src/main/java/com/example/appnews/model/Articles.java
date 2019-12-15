@@ -19,7 +19,7 @@ public class Articles {
     public Articles() {
     }
 
-    public Articles(String author, String title, String urlToImage, String publishedAt, String url) {
+    public Articles(String author, String title, String description, String urlToImage, String publishedAt, String url) {
         this.author = author;
         this.title = title;
         this.description = description;

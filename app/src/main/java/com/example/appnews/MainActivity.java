@@ -147,12 +147,12 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewAdapt
                                 String creatorName = articles.getString("title");
                                 String imageUrl = articles.getString("urlToImage");
                                 String creatorDate = articles.getString("publishedAt");
-                                //String creatorDescription = articles.getString("description");
+                                String creatorDescription = articles.getString("description");
                                 String article_url = articles.getString("url");
 
                                 Log.d("coucou", articles.getString("urlToImage"));
 
-                                mArticlesList.add(new Articles(creatorAuthor, creatorName, imageUrl, creatorDate, article_url));
+                                mArticlesList.add(new Articles(creatorAuthor, creatorName, creatorDescription, imageUrl, creatorDate, article_url));
                                 mArticlesList.get(i).setSource(url_source);
                                 //articles.setSource(url_source);
                             }
