@@ -1,5 +1,7 @@
 # First_Application_Android_News_App
 
+## Yassine Abderrahmani 
+
 ## Les choses faites 
 
 - **Splashscreen**
