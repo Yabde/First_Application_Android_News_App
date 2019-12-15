@@ -23,9 +23,21 @@ public class RecyclerViewAdapter extends Adapter<RecyclerViewAdapter.RecyclerVie
 
     private Context mContext;
     private ArrayList<Articles> mArticlesList;
+    private OnItemClickListener mListener; //Pour l'ouverture du détail d'un article en particulier
 
+    // Pour l'affichage Pair et Impair
     private static final int Layout_pair = 0;
     private static final int Layout_impair = 1;
+
+    //Pour l'ouverture du détail d'un article
+    public interface OnItemClickListener {
+        void onItemClick(int position);  //Création de la méthode de notre interface
+    }
+
+    //Cette méthode sera appelée dans le MainActivity
+    public void setOnItemClickListener(OnItemClickListener listener) {
+        mListener = listener;
+    }
 
     public RecyclerViewAdapter(Context context, ArrayList<Articles> articlesList) {
         mContext = context;
@@ -119,6 +131,17 @@ public class RecyclerViewAdapter extends Adapter<RecyclerViewAdapter.RecyclerVie
             //artic_description = itemView.findViewById(R.id.descriptif);
             artic_img = itemView.findViewById(R.id.vignette);
 
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (mListener != null) {
+                        int position = getAdapterPosition(); //La position de l'item sera sauvegardé dans cette variable
+                        if (position != RecyclerView.NO_POSITION) {  //Vérifie si la position est tjrs valide
+                            mListener.onItemClick(position);
+                        }
+                    }
+                }
+            });
         }
     }
 

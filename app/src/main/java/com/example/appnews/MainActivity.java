@@ -1,6 +1,7 @@
 package com.example.appnews;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -30,7 +31,15 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements RecyclerViewAdapter.OnItemClickListener {
+    // Usage de ces constantes pour ouvrir le détail d'un article en particulier
+    public static final String Extra_title = "title";
+    public static final String Extra_author = "author";
+    public static final String Extra_id = "id";
+    public static final String Extra_description = "description";
+    public static final String Extra_date = "publishedAt";
+    public static final String Extra_img_url = "urlToImage";
+    public static final String Extra_buton_webview = "url";
 
     AlertDialog.Builder Pas_Internet;
 
@@ -112,7 +121,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        
+
         parseJSON(); //nom arbitraire : methodes à créer séparément pour pouvoir mettre les données
     }
 
@@ -150,6 +159,7 @@ public class MainActivity extends AppCompatActivity {
 
                             mArticlesAdapter = new RecyclerViewAdapter(MainActivity.this, mArticlesList);
                             mRecyclerView.setAdapter(mArticlesAdapter);
+                            mArticlesAdapter.setOnItemClickListener(MainActivity.this);
 
                         } catch (JSONException e) {
                             e.printStackTrace();
@@ -167,5 +177,21 @@ public class MainActivity extends AppCompatActivity {
 
         //On doit rajouter notre requete à notre RequestQue
         mRequestQueue.add(request);
+    }
+
+    @Override
+    public void onItemClick(int position) {
+        Intent detailIntent = new Intent(this, DetailActivity.class);
+        Articles clickedItem = mArticlesList.get(position);
+
+        detailIntent.putExtra(Extra_id, clickedItem.getId());
+        detailIntent.putExtra(Extra_author, clickedItem.getAuthor());
+        detailIntent.putExtra(Extra_title, clickedItem.getTitle());
+        detailIntent.putExtra(Extra_description, clickedItem.getDescription());
+        //detailIntent.putExtra(Extra_buton_webview, clickedItem.getUrl());
+        detailIntent.putExtra(Extra_img_url, clickedItem.getUrlToImage());
+        detailIntent.putExtra(Extra_date, clickedItem.getPublishedAt());
+
+        startActivity(detailIntent); //Maintenant on doit attraper cet Intent dans l'activité en question
     }
 }

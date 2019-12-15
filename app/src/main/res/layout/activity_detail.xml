@@ -11,25 +11,25 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="423dp"
-        android:layout_height="338dp">
+        android:layout_height="200dp">
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/text_view_date_detail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Date"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.887"
+            app:layout_constraintHorizontal_bias="0.796"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.05" />
+            app:layout_constraintVertical_bias="0.132" />
 
         <TextView
             android:id="@+id/text_view_title_detail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Tilte :"
+            android:text="Title :"
             android:textColor="@android:color/black"
             android:textSize="30sp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -49,7 +49,7 @@
             android:textSize="15sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.05"
+            app:layout_constraintHorizontal_bias="0.043"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/text_view_title_detail"
             app:layout_constraintVertical_bias="0.0" />
@@ -66,7 +66,7 @@
             app:layout_constraintHorizontal_bias="0.045"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/text_view_author_detail"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintVertical_bias="0.139" />
 
         <TextView
             android:id="@+id/text_view_description_detail"
@@ -80,7 +80,7 @@
             app:layout_constraintHorizontal_bias="0.051"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/text_view_source_detail"
-            app:layout_constraintVertical_bias="0.053" />
+            app:layout_constraintVertical_bias="0.22" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <ImageView
@@ -90,7 +90,7 @@
         android:src="@mipmap/ic_launcher" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/button_webview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Lire le reste" />
