@@ -1,6 +1,7 @@
 package com.example.appnews;
 
 import android.os.Bundle;
+import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
@@ -28,8 +29,8 @@ public class WebActivity extends AppCompatActivity {
         webView.loadUrl(url);
 
         //Facultatif si on veut rajouter des options...
-        //WebSettings webSettings = webView.getSettings();
-        //webSettings.setJavaScriptEnabled(true);   //Par exemple...
+        WebSettings webSettings = webView.getSettings();
+        webSettings.setJavaScriptEnabled(true);   //Utile car Permet de fermer les Popups de Cookie pour Le Monde Par exemple...
     }
 
     //On va permettre un retour en arrière sans fermer l'application

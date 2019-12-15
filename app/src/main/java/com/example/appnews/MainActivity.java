@@ -107,7 +107,7 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewAdapt
 
         Pas_Internet = new AlertDialog.Builder(this);
         Pas_Internet.setTitle("Alert");
-        Pas_Internet.setMessage("Pas de connexion réseau");
+        Pas_Internet.setMessage("Pas de connexion réseau OU bien Requêtes Max atteintes : 250 toutes les 12H...");
         Pas_Internet.setPositiveButton("Retry", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
