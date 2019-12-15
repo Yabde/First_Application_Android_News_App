@@ -46,15 +46,6 @@
                 android:layout_marginTop="2dp"
                 android:text="Date : " />
 
-            <!--            <TextView-->
-            <!--                android:id="@+id/descriptif"-->
-            <!--                android:layout_width="match_parent"-->
-            <!--                android:layout_height="wrap_content"-->
-            <!--                android:layout_marginTop="4dp"-->
-            <!--                android:text="Description : "-->
-            <!--                android:textColor="#2B2B2B"-->
-            <!--                android:textStyle="bold" />-->
-
 
         </LinearLayout>
 

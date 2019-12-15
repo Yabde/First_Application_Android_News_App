@@ -77,14 +77,6 @@ public class SplashScreen extends AppCompatActivity {
 
                                 JSONObject sources = jsonArray.getJSONObject(i);
 
-
-//                                Source source_provi = new Source();
-//                                source_provi.setId(sources.getString("id"));
-//                                source_provi.setName(sources.getString("name"));
-//                                source_provi.setUrl(sources.getString("url"));
-//
-//                                source_list.addSource(source_provi);
-
                                 String creatorId = sources.getString("id");
                                 String creatorName = sources.getString("name");
                                 String creatorUrl = sources.getString("url");

@@ -190,7 +190,7 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewAdapt
         detailIntent.putExtra(Extra_author, clickedItem.getAuthor());
         detailIntent.putExtra(Extra_title, clickedItem.getTitle());
         detailIntent.putExtra(Extra_description, clickedItem.getDescription());
-        //detailIntent.putExtra(Extra_buton_webview, clickedItem.getUrl());
+        detailIntent.putExtra(Extra_buton_webview, clickedItem.getUrl());
         detailIntent.putExtra(Extra_img_url, clickedItem.getUrlToImage());
         detailIntent.putExtra(Extra_date, clickedItem.getPublishedAt());
 

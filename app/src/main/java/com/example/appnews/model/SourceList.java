@@ -3,11 +3,13 @@ package com.example.appnews.model;
 import java.util.ArrayList;
 
 public class SourceList {
+    private static final SourceList list = new SourceList();
+
+    private ArrayList<Source> source;
 
     // Idee : Creation de cette classe pour stocker nos differentes valeurs JSON
     // Et pouvoir ensuite l'appeler dans la méthode : spinner.setOnItemSelectedListener(...) de notre spinner
 
-    private ArrayList<Source> source;
 
     public SourceList() {
         source = new ArrayList<>();
@@ -33,7 +35,6 @@ public class SourceList {
         return source.size();
     }
 
-    private static final SourceList list = new SourceList();
     public static SourceList getInstance(){
         return list;
     }
