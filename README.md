@@ -7,7 +7,7 @@
 ### Remarques :
 
 Il y a un nombre MAX de requêtes possibles qui est de : 250 toutes les 12H ... 
-Cela créer une erreur 'internet' dans l'application si elle est atteinte.
+Cela créer une erreur 'internet' dans l'application si elle est atteinte et Google nous empêche d'y accéder.
 
 - **Splashscreen**
     - Récupération des différentes Sources -> Puis stocker pour être utiliser dans un SPINNER dans le MainActivity
@@ -24,5 +24,5 @@ Cela créer une erreur 'internet' dans l'application si elle est atteinte.
 
 - **Chauses non faites**
     - Loading des pages suivantes non pris en comtpes
-    - Loader dans la webview non implémenté car j'ai été ralenti par le problème des requetes MAX atteintes... ainsi je n'ai pas pu tester cette fonctionnalité et été contraint de la retirer...
+    - Loader dans la webview non implémenté car j'ai été ralenti par le problème des requetes MAX atteintes... ainsi je n'ai pas pu tester cette fonctionnalité et été contraint de retirer le Loader... Mais la webview est accessible et fonctionne bien.
     - Je n'ai pas utilisé les Fragments non plus
