@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewAdapt
     // Usage de ces constantes pour ouvrir le détail d'un article en particulier
     public static final String Extra_title = "title";
     public static final String Extra_author = "author";
-    public static final String Extra_id = "id";
+    public static final String Extra_source_name = "name";
     public static final String Extra_description = "description";
     public static final String Extra_date = "publishedAt";
     public static final String Extra_img_url = "urlToImage";
@@ -150,9 +150,11 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewAdapt
                                 String creatorDescription = articles.getString("description");
                                 String article_url = articles.getString("url");
 
+                                String Extra_creator_source_name_ = url_source.getName(); // Utilisé pour afficher la SOURCE dans le Détail d'une Activité seulement
+
                                 Log.d("coucou", articles.getString("urlToImage"));
 
-                                mArticlesList.add(new Articles(creatorAuthor, creatorName, creatorDescription, imageUrl, creatorDate, article_url));
+                                mArticlesList.add(new Articles(Extra_creator_source_name_, creatorAuthor, creatorName, creatorDescription, imageUrl, creatorDate, article_url));
                                 mArticlesList.get(i).setSource(url_source);
                                 //articles.setSource(url_source);
                             }
@@ -184,7 +186,7 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewAdapt
         Intent detailIntent = new Intent(this, DetailActivity.class);
         Articles clickedItem = mArticlesList.get(position);
 
-        detailIntent.putExtra(Extra_id, clickedItem.getId());
+        detailIntent.putExtra(Extra_source_name, clickedItem.getName());
         detailIntent.putExtra(Extra_author, clickedItem.getAuthor());
         detailIntent.putExtra(Extra_title, clickedItem.getTitle());
         detailIntent.putExtra(Extra_description, clickedItem.getDescription());

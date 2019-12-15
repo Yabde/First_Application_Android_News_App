@@ -14,6 +14,6 @@
     - Prise en compte des erreurs si il n'y a pas internet : boite de dialogue (Retry, Close)
     - Mise en Forme Conditionnelle : PAIR & IMPAIR 
     - Adaptation selon si le contenu est présent ou non : Image Spécifique + Texte spécifique en cas d'absence
-    - Ouverture d'une fenêtre de détail si on clique sur un article
+    - Ouverture d'une fenêtre de détail si on clique sur un article (SCROLLing possible)
     - Webview si on clique sur le bouton dédié dans la fenêtre de détail
 

@@ -19,7 +19,8 @@ public class Articles {
     public Articles() {
     }
 
-    public Articles(String author, String title, String description, String urlToImage, String publishedAt, String url) {
+    public Articles(String source_name, String author, String title, String description, String urlToImage, String publishedAt, String url) {
+        this.name = source_name;  //Utilisé pour afficher la source dans le détail d'une activité seulement
         this.author = author;
         this.title = title;
         this.description = description;

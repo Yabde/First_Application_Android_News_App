@@ -2,6 +2,7 @@ package com.example.appnews;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Html;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -12,8 +13,8 @@ import com.squareup.picasso.Picasso;
 import static com.example.appnews.MainActivity.Extra_author;
 import static com.example.appnews.MainActivity.Extra_date;
 import static com.example.appnews.MainActivity.Extra_description;
-import static com.example.appnews.MainActivity.Extra_id;
 import static com.example.appnews.MainActivity.Extra_img_url;
+import static com.example.appnews.MainActivity.Extra_source_name;
 import static com.example.appnews.MainActivity.Extra_title;
 
 public class DetailActivity extends AppCompatActivity {
@@ -27,7 +28,7 @@ public class DetailActivity extends AppCompatActivity {
 
         String create_title = intent.getStringExtra(Extra_title);
         String create_author = intent.getStringExtra(Extra_author);
-        String create_id = intent.getStringExtra(Extra_id);
+        String create_id = intent.getStringExtra(Extra_source_name);
         String create_description = intent.getStringExtra(Extra_description);
         String create_date = intent.getStringExtra(Extra_date);
         String imageUrl = intent.getStringExtra(Extra_img_url);
@@ -42,12 +43,12 @@ public class DetailActivity extends AppCompatActivity {
 
         textViewTitle.setText(create_title);
         textViewId.setText(create_id);
-        textViewDescription.setText("Description : " + create_description);
+        textViewDescription.setText(Html.fromHtml("<b>Description : </b>" + create_description));
         textViewDate.setText(create_date);
 
         // Prise en compte des Auteurs Manquants
         if (create_author.equals("null")) textViewAuthor.setText("Pas d'auteur.");
-        else textViewAuthor.setText("Auteur : " + create_author);
+        else textViewAuthor.setText(Html.fromHtml("<i><u>Auteur</u></i> : " + create_author));
 
         // Prise en compte des Images Manquantes
         if (imageUrl.equals("null"))
